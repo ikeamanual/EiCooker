@@ -1,3 +1,8 @@
+/*
+*
+* https://www.vektis.nl/streams/standaardisatie/standaarden/PM304-3.2
+*
+*/
 module.exports["fullWidth"] = 310;
 
 module.exports["Voorlooprecord"] = [
@@ -29,7 +34,8 @@ module.exports["Voorlooprecord"] = [
     name: "Soort bericht",
     width: 1,
     start: 10,
-    type: "string"
+    type: "string",
+    padding_position: "end"
   },
   {
     name: "Code informatiesysteem softwareleverancier",
@@ -41,7 +47,8 @@ module.exports["Voorlooprecord"] = [
     name: "Versieaanduiding informatiesysteem softwareleverancier",
     width: 10,
     start: 17,
-    type: "string"
+    type: "string",
+    padding_position: "end"
   },
   {
     name: "Uzovi-nummer",
@@ -95,7 +102,8 @@ module.exports["Voorlooprecord"] = [
     name: "Factuurnummer declarant",
     width: 12,
     start: 81,
-    type: "string"
+    type: "string",
+    padding_position: "end"
   },
   {
     name: "Dagtekening factuur",
@@ -107,19 +115,22 @@ module.exports["Voorlooprecord"] = [
     name: "Btw-identificatienummer",
     width: 14,
     start: 101,
-    type: "string"
+    type: "string",
+    padding_position: "end"
   },
   {
     name: "Valutacode",
     width: 3,
     start: 115,
-    type: "string"
+    type: "string",
+    padding_position: "end"
   },
   {
     name: "Reserve",
     width: 193,
     start: 118,
-    type: "string"
+    type: "string",
+    padding_position: "end"
   }
 ];
 
@@ -152,13 +163,15 @@ module.exports["Verzekerdenrecord"] = [
     name: "Verzekerdennummer (inschrijvingsnummer, relatienummer)",
     width: 15,
     start: 28,
-    type: "string"
+    type: "string",
+    padding_position: "end"
   },
   {
     name: "Patient(identificatie)nummer",
     width: 11,
     start: 43,
-    type: "string"
+    type: "string",
+    padding_position: "end"
   },
   {
     name: "Datum geboorte verzekerde",
@@ -182,13 +195,15 @@ module.exports["Verzekerdenrecord"] = [
     name: "Naam verzekerde (01)",
     width: 25,
     start: 64,
-    type: "string"
+    type: "string",
+    padding_position: "end"
   },
   {
     name: "Voorvoegsel verzekerde (01)",
     width: 10,
     start: 89,
-    type: "string"
+    type: "string",
+    padding_position: "end"
   },
   {
     name: "Naamcode/naamgebruik (02)",
@@ -200,19 +215,22 @@ module.exports["Verzekerdenrecord"] = [
     name: "Naam verzekerde (02)",
     width: 25,
     start: 100,
-    type: "string"
+    type: "string",
+    padding_position: "end"
   },
   {
     name: "Voorvoegsel verzekerde (02)",
     width: 10,
     start: 125,
-    type: "string"
+    type: "string",
+    padding_position: "end"
   },
   {
     name: "Voorletters verzekerde",
     width: 6,
     start: 135,
-    type: "string"
+    type: "string",
+    padding_position: "end"
   },
   {
     name: "Naamcode/naamgebruik (03)",
@@ -224,13 +242,15 @@ module.exports["Verzekerdenrecord"] = [
     name: "Postcode (huisadres) verzekerde",
     width: 6,
     start: 142,
-    type: "string"
+    type: "string",
+    padding_position: "end"
   },
   {
     name: "Postcode buitenland",
     width: 9,
     start: 148,
-    type: "string"
+    type: "string",
+    padding_position: "end"
   },
   {
     name: "Huisnummer (huisadres) verzekerde",
@@ -242,25 +262,29 @@ module.exports["Verzekerdenrecord"] = [
     name: "Huisnummertoevoeging (huisadres) verzekerde",
     width: 6,
     start: 162,
-    type: "string"
+    type: "string",
+    padding_position: "end"
   },
   {
     name: "Code land verzekerde",
     width: 2,
     start: 168,
-    type: "string"
+    type: "string",
+    padding_position: "end"
   },
   {
     name: "Debiteurnummer",
     width: 11,
     start: 170,
-    type: "string"
+    type: "string",
+    padding_position: "end"
   },
   {
     name: "Reserve",
     width: 130,
     start: 181,
-    type: "string"
+    type: "string",
+    padding_position: "end"
   }
 ];
 module.exports["Prestatierecord"] = [
@@ -277,202 +301,218 @@ module.exports["Prestatierecord"] = [
     type: "string"
   },
   {
-    name: "Kenmerk",
-    width: 00,
-    start: 00,
+    name: "Burgerservicenummer (bsn) verzekerde",
+    width: 9,
+    start: 15,
     type: "string"
   },
   {
-    name: "Kenmerk",
-    width: 00,
-    start: 00,
+    name: "Uzovi-nummer",
+    width: 4,
+    start: 24,
     type: "string"
   },
   {
-    name: "Kenmerk",
-    width: 00,
-    start: 00,
+    name: "Verzekerdennummer (inschrijvingsnummer, relatienummer)",
+    width: 15,
+    start: 28,
+    type: "string",
+    padding_position: "end"
+  },
+  {
+    name: "Machtigingsnummer",
+    width: 15,
+    start: 43,
+    type: "string",
+    padding_position: "end"
+  },
+  {
+    name: "Doorsturen toegestaan",
+    width: 1,
+    start: 58,
     type: "string"
   },
   {
-    name: "Kenmerk",
-    width: 00,
-    start: 00,
+    name: "Datum prestatie",
+    width: 8,
+    start: 59,
     type: "string"
   },
   {
-    name: "Kenmerk",
-    width: 00,
-    start: 00,
+    name: "Aanduiding prestatiecodelijst",
+    width: 3,
+    start: 67,
     type: "string"
   },
   {
-    name: "Kenmerk",
-    width: 00,
-    start: 00,
+    name: "Prestatiecode",
+    width: 6,
+    start: 70,
+    type: "string",
+    padding_position: "end"
+  },
+  {
+    name: "KenmAantal uitgevoerde prestatieserk",
+    width: 4,
+    start: 76,
     type: "string"
   },
   {
-    name: "Kenmerk",
-    width: 00,
-    start: 00,
+    name: "Indicatie ongeval (ongevalsgevolg)",
+    width: 1,
+    start: 80,
     type: "string"
   },
   {
-    name: "Kenmerk",
-    width: 00,
-    start: 00,
+    name: "Aanduiding diagnosecodelijst (01)",
+    width: 3,
+    start: 81,
     type: "string"
   },
   {
-    name: "Kenmerk",
-    width: 00,
-    start: 00,
+    name: "Verwijsdiagnosecode paramedische hulp (01)",
+    width: 8,
+    start: 84,
     type: "string"
   },
   {
-    name: "Kenmerk",
-    width: 00,
-    start: 00,
+    name: "Aanduiding diagnosecodelijst (02)",
+    width: 3,
+    start: 92,
     type: "string"
   },
   {
-    name: "Kenmerk",
-    width: 00,
-    start: 00,
+    name: "Verwijsdiagnosecode paramedische hulp (02)",
+    width: 8,
+    start: 95,
     type: "string"
   },
   {
-    name: "Kenmerk",
-    width: 00,
-    start: 00,
+    name: "Aanduiding diagnosecodelijst (03)",
+    width: 3,
+    start: 103,
     type: "string"
   },
   {
-    name: "Kenmerk",
-    width: 00,
-    start: 00,
+    name: "Paramedische diagnosecode (01)",
+    width: 8,
+    start: 106,
+    type: "string",
+    padding_position: "end"
+  },
+  {
+    name: "Aanduiding diagnosecodelijst (04)",
+    width: 3,
+    start: 114,
     type: "string"
   },
   {
-    name: "Kenmerk",
-    width: 00,
-    start: 00,
+    name: "Paramedische diagnosecode (02)",
+    width: 8,
+    start: 117,
+    type: "string",
+    padding_position: "end"
+  },
+  {
+    name: "Code soort indicatie paramedische hulp",
+    width: 3,
+    start: 125,
     type: "string"
   },
   {
-    name: "Kenmerk",
-    width: 00,
-    start: 00,
+    name: "Zorgverlenerscode behandelaar/uitvoerder",
+    width: 8,
+    start: 128,
     type: "string"
   },
   {
-    name: "Kenmerk",
-    width: 00,
-    start: 00,
+    name: "Specialisme behandelaar/uitvoerder",
+    width: 4,
+    start: 136,
     type: "string"
   },
   {
-    name: "Kenmerk",
-    width: 00,
-    start: 00,
+    name: "Verwijsdatum",
+    width: 8,
+    start: 140,
     type: "string"
   },
   {
-    name: "Kenmerk",
-    width: 00,
-    start: 00,
+    name: "Zorgverlenerscode voorschrijver/verwijzer",
+    width: 8,
+    start: 148,
     type: "string"
   },
   {
-    name: "Kenmerk",
-    width: 00,
-    start: 00,
+    name: "Specialisme voorschrijver/verwijzer",
+    width: 4,
+    start: 156,
     type: "string"
   },
   {
-    name: "Kenmerk",
-    width: 00,
-    start: 00,
+    name: "Reden einde zorg",
+    width: 2,
+    start: 160,
     type: "string"
   },
   {
-    name: "Kenmerk",
-    width: 00,
-    start: 00,
+    name: "Tarief prestatie (incl. btw)",
+    width: 8,
+    start: 162,
     type: "string"
   },
   {
-    name: "Kenmerk",
-    width: 00,
-    start: 00,
+    name: "Berekend bedrag (incl. btw)",
+    width: 8,
+    start: 170,
     type: "string"
   },
   {
-    name: "Kenmerk",
-    width: 00,
-    start: 00,
+    name: "Indicatie debet/credit (01)",
+    width: 1,
+    start: 178,
+    type: "string",
+    padding_position: "end"
+  },
+  {
+    name: "Btw-percentage declaratiebedrag",
+    width: 4,
+    start: 179,
     type: "string"
   },
   {
-    name: "Kenmerk",
-    width: 00,
-    start: 00,
+    name: "Declaratiebedrag (incl. btw)",
+    width: 8,
+    start: 183,
     type: "string"
   },
   {
-    name: "Kenmerk",
-    width: 00,
-    start: 00,
-    type: "string"
+    name: "Indicatie debet/credit (02)",
+    width: 1,
+    start: 191,
+    type: "string",
+    padding_position: "end"
   },
   {
-    name: "Kenmerk",
-    width: 00,
-    start: 00,
-    type: "string"
+    name: "Referentienummer dit prestatierecord",
+    width: 20,
+    start: 192,
+    type: "string",
+    padding_position: "end"
   },
   {
-    name: "Kenmerk",
-    width: 00,
-    start: 00,
-    type: "string"
+    name: "Referentienummer voorgaande gerelateerde prestatierecord",
+    width: 20,
+    start: 212,
+    type: "string",
+    padding_position: "end"
   },
   {
-    name: "Kenmerk",
-    width: 00,
-    start: 00,
-    type: "string"
-  },
-  {
-    name: "Kenmerk",
-    width: 00,
-    start: 00,
-    type: "string"
-  },
-  {
-    name: "Kenmerk",
-    width: 00,
-    start: 00,
-    type: "string"
-  },
-  {
-    name: "Kenmerk",
-    width: 00,
-    start: 00,
-    type: "string"
-  },
-  {
-    name: "Kenmerk",
-    width: 00,
-    start: 00,
-    type: "string"
-  },
-  {
-    name: "Kenmerk",
-    width: 00,
-    start: 00,
-    type: "string"
+    name: "Reserve",
+    width: 79,
+    start: 232,
+    type: "string",
+    padding_position: "end"
   }
 ];
 module.exports["Commentaarrecord"] = [
@@ -522,12 +562,6 @@ module.exports["Sluitrecord"] = [
   },
   {
     name: "Aantal commentaarrecords",
-    width: 00,
-    start: 00,
-    type: "string"
-  },
-  {
-    name: "Kenmerk",
     width: 6,
     start: 21,
     type: "string"
@@ -539,39 +573,23 @@ module.exports["Sluitrecord"] = [
     type: "string"
   },
   {
-    name: "Kenmerk",
-    width: 00,
-    start: 00,
+    name: "Totaal declaratiebedrag",
+    width: 11,
+    start: 34,
     type: "string"
   },
   {
-    name: "Kenmerk",
-    width: 00,
-    start: 00,
-    type: "string"
+    name: "Indicatie debet/credit",
+    width: 1,
+    start: 45,
+    type: "string",
+    padding_position: "end"
   },
   {
-    name: "Kenmerk",
-    width: 00,
-    start: 00,
-    type: "string"
-  },
-  {
-    name: "Kenmerk",
-    width: 00,
-    start: 00,
-    type: "string"
-  },
-  {
-    name: "Kenmerk",
-    width: 00,
-    start: 00,
-    type: "string"
-  },
-  {
-    name: "Kenmerk",
-    width: 00,
-    start: 00,
-    type: "string"
+    name: "Reserve",
+    width: 265,
+    start: 46,
+    type: "string",
+    padding_position: "end"
   }
 ];
