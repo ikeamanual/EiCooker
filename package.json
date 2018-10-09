@@ -1,0 +1,27 @@
+{
+  "name": "eicooker",
+  "version": "1.0.0",
+  "description": "Toolkit to read, write and test EI records. ( External Integration records )",
+  "main": "index.js",
+  "dependencies": {
+    "fixy": "^1.2.0"
+  },
+  "devDependencies": {
+    "mochista": "^0.17.3"
+  },
+  "scripts": {
+    "test": "mochista",
+    "test-watch": "mochista -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ikeamanual/EiCooker.git"
+  },
+  "author": "p.meulmeester@gmail.com",
+  "license": "UNLICENSED",
+  "private": true,
+  "bugs": {
+    "url": "https://github.com/ikeamanual/EiCooker/issues"
+  },
+  "homepage": "https://github.com/ikeamanual/EiCooker#readme"
+}
