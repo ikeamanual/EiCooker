@@ -529,10 +529,24 @@ module.exports["Commentaarrecord"] = [
     type: "string"
   },
   {
-    name: "Kenmerk",
-    width: 00,
-    start: 00,
+    name: "Regelnummer vrije tekst",
+    width: 4,
+    start: 15,
     type: "string"
+  },
+  {
+    name: "Vrije tekst",
+    width: 140,
+    start: 19,
+    type: "string",
+    padding_position: "end"
+  },
+  {
+    name: "Reserve",
+    width: 152,
+    start: 159,
+    type: "string",
+    padding_position: "end"
   }
 ];
 module.exports["Sluitrecord"] = [
