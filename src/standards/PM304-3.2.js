@@ -5,7 +5,15 @@
 */
 module.exports["fullWidth"] = 310;
 
-module.exports["Voorlooprecord"] = [
+module.exports["kenmerkToRecordName"] = {
+  "01": "Voorlooprecord",
+  "02": "Verzekerdenrecord",
+  "04": "Prestatierecord",
+  "98": "Commentaarrecord",
+  "99": "Sluitrecord"
+};
+
+module.exports["01"] = [
   {
     name: "Kenmerk record",
     width: 2,
@@ -134,7 +142,7 @@ module.exports["Voorlooprecord"] = [
   }
 ];
 
-module.exports["Verzekerdenrecord"] = [
+module.exports["02"] = [
   {
     name: "Kenmerk record",
     width: 2,
@@ -287,7 +295,7 @@ module.exports["Verzekerdenrecord"] = [
     padding_position: "end"
   }
 ];
-module.exports["Prestatierecord"] = [
+module.exports["04"] = [
   {
     name: "Kenmerk record",
     width: 2,
@@ -515,7 +523,7 @@ module.exports["Prestatierecord"] = [
     padding_position: "end"
   }
 ];
-module.exports["Commentaarrecord"] = [
+module.exports["98"] = [
   {
     name: "Kenmerk record",
     width: 2,
@@ -549,7 +557,7 @@ module.exports["Commentaarrecord"] = [
     padding_position: "end"
   }
 ];
-module.exports["Sluitrecord"] = [
+module.exports["99"] = [
   {
     name: "Kenmerk record",
     width: 2,
