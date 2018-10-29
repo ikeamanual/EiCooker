@@ -4,24 +4,34 @@ let debug = require("debug")(path.basename(__filename, ".js"));
 
 debug("eifile.test");
 let assert = require("assert");
-let load = require("./eifile");
+let eifile = require("./eifile");
 
 const fileName = "./testdata/test1.dat";
 
 describe("load file", async function() {
   it("file should load", async function() {
     const dataDef = require("./standards/PM304-3.2.js");
-    const lines = await load.load(fileName, dataDef);
+    const lines = await eifile.load(fileName, dataDef);
 
     assert.equal(lines.length, 4);
   });
 
+  it("unknown file should throw exception", async function() {
+    const dataDef = require("./standards/PM304-3.2.js");
+    let lines = [];
+    try {
+      lines = await eifile.load(fileName + "XXX", dataDef);
+    } catch (e) {
+      assert.equal(lines.length, 0);
+    }
+  });
+
   it("parse Voorlooprecord", async function() {
     const dataDef = require("./standards/PM304-3.2.js");
-    const lines = await load.load(fileName, dataDef);
+    const lines = await eifile.load(fileName, dataDef);
     debug(`lines[0] = ${lines[0].substring(0, 2)}`);
 
-    const fixyData = load.parseRecord(lines[0], dataDef, "01");
+    const fixyData = eifile.parseRecord(lines[0], dataDef, "01");
 
     debug(`fixyData[0].Kenmerk record = ${fixyData[0]["Kenmerk record"]}`);
 
@@ -30,13 +40,13 @@ describe("load file", async function() {
 
   it("load and write a complete file into mem, json format", async function() {
     const dataDef = require("./standards/PM304-3.2.js");
-    const data = await load.loadFile(fileName, dataDef);
+    const data = await eifile.loadFile(fileName, dataDef);
     // assert.equal(data.length, 49);
     debug(`data[0] = ${data[1][0]["Naam verzekerde (01)"]}`);
 
-    load.writeFile(data, dataDef, "/tmp/piet.dat");
+    eifile.writeFile(data, dataDef, "/tmp/piet.dat");
 
-    load.writeDataAsJson(data, "/tmp/piet.json");
+    eifile.writeDataAsJson(data, "/tmp/piet.json");
   });
 });
 
@@ -153,6 +163,6 @@ describe("write file", async function() {
     const dataDef = require("./standards/PM304-3.2.js");
     debug(`data[0] = ${data[1][0]["Naam verzekerde (01)"]}`);
 
-    load.writeFile(data, dataDef, "/tmp/piet2.dat");
+    eifile.writeFile(data, dataDef, "/tmp/piet2.dat");
   });
 });
