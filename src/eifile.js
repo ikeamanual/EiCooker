@@ -47,7 +47,7 @@ exports.loadFile = async (filePath, dataDef) => {
     debug(`fixyData[0].Kenmerk record = ${kenmerkRecord}`);
 
     fixyData = exports.parseRecord(lines[i], dataDef, kenmerkRecord); //
-    data.push(fixyData);
+    data.push(fixyData[0]);
   }
   debug(`data.length = ${data.length}`);
   return data;
@@ -58,7 +58,7 @@ exports.writeFile = async (data, dataDef, filePath) => {
   const fixy = require("fixy");
   var outputString = "";
   for (var i = 0; i < data.length; i++) {
-    const kenmerkRecord = data[i][0]["Kenmerk record"];
+    const kenmerkRecord = data[i]["Kenmerk record"];
     debug(`fixyData[0].Kenmerk record = ${kenmerkRecord}`);
     var line = fixy.unparse(dataDef[kenmerkRecord], data[i]);
     line += "\r\n";
@@ -67,7 +67,7 @@ exports.writeFile = async (data, dataDef, filePath) => {
   const util = require("util");
   const fs = require("fs");
   const writeFile = util.promisify(fs.writeFile);
-  writeFile(filePath, outputString);
+  await writeFile(filePath, outputString);
   debug(`data.length = ${data.length}`);
 };
 
@@ -79,5 +79,5 @@ exports.writeDataAsJson = async (data, filePath) => {
   const util = require("util");
   const fs = require("fs");
   const writeFile = util.promisify(fs.writeFile);
-  writeFile(filePath, outputString);
+  await writeFile(filePath, outputString);
 };
