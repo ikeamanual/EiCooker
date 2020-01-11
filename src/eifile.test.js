@@ -53,7 +53,6 @@ describe("load file", async function () {
 describe("write file", async function () {
   it("write data from json", async function () {
     const data = [
-
       {
         "Kenmerk record": "01",
         "Code externe-integratiebericht": "107",

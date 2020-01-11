@@ -8,11 +8,14 @@ let main = async () => {
     let eifile = require("./eifile");
 
     // const fileName = "./testdata/test1.dat";
-    const fileName = "./testdata/VECOZO Declaration No. 49 for Logopedie Sterk - 201902050432.dat"
+    // const fileName = "./testdata/VECOZO Declaration No. 49 for Logopedie Sterk - 201902050432.dat"
+    // const fileName = "./testdata/VECOZO Declaration No. 76 for Logopedie Sterk - 202001101158.dat"
+    const fileName = "./testdata/547cb3b4-7924-42ff-83a9-10a5c4a539b1.txt"
     console.log(`fileName = ${fileName}`)
 
 
-    const dataDef = require("./standards/PM304-3.2.js");
+    // const dataDef = require("./standards/PM304-3.2.js");
+    const dataDef = require("./standards/PM305-3.2.js");
 
 
     const data = await eifile.loadFile(fileName, dataDef);
@@ -43,7 +46,7 @@ let main = async () => {
         }
     }
 
-    // await eifile.writeDataAsJson(data, "/tmp/piet.json");
+    await eifile.writeDataAsJson(data, "/tmp/piet.json");
     // var jsonData = require("/tmp/piet.json")
     var nunjucks = require("nunjucks")
     var html = nunjucks.render("invoice.njk", reportData)

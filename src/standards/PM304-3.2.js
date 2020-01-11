@@ -360,7 +360,7 @@ module.exports["04"] = [
     padding_position: "end"
   },
   {
-    name: "KenmAantal uitgevoerde prestatieserk",
+    name: "Aantal uitgevoerde prestaties",
     width: 4,
     start: 76,
     type: "string"
