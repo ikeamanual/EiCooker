@@ -60,7 +60,7 @@ exports.writeFile = async (data, dataDef, filePath) => {
   for (var i = 0; i < data.length; i++) {
     const kenmerkRecord = data[i]["Kenmerk record"];
     debug(`fixyData[0].Kenmerk record = ${kenmerkRecord}`);
-    var line = fixy.unparse(dataDef[kenmerkRecord], data[i]);
+    var line = fixy.unparse(dataDef[kenmerkRecord], data);
     line += "\r\n";
     outputString += line;
   }
