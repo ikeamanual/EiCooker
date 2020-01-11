@@ -757,21 +757,21 @@ module.exports["98"] = [
     {
         name: "Identificatie detailrecord",
         width: 12,
-        end: 2,
+        end: 14,
         start: 3,
         type: "string"
     },
     {
         name: "Regelnummer vrije tekst",
         width: 4,
-        end: 2,
+        end: 18,
         start: 15,
         type: "string"
     },
     {
         name: "Vrije tekst",
         width: 140,
-        end: 2,
+        end: 158,
         start: 19,
         type: "string",
         padding_position: "end"
@@ -779,8 +779,40 @@ module.exports["98"] = [
     {
         name: "Reserve",
         width: 152,
-        end: 2,
+        end: 310,
         start: 159,
+        type: "string",
+        padding_position: "end"
+    },
+    {
+        name: "Retourcode (01)",
+        width: 4,
+        end: 314,
+        start: 311,
+        type: "string",
+        padding_position: "end"
+    },
+    {
+        name: "Retourcode (02)",
+        width: 4,
+        end: 318,
+        start: 315,
+        type: "string",
+        padding_position: "end"
+    },
+    {
+        name: "Retourcode (03)",
+        width: 4,
+        end: 322,
+        start: 319,
+        type: "string",
+        padding_position: "end"
+    },
+    {
+        name: "Reserve",
+        width: 48,
+        end: 370,
+        start: 321,
         type: "string",
         padding_position: "end"
     }
@@ -794,60 +826,76 @@ module.exports["99"] = [
         type: "string"
     },
     {
-        name: "Aantal verzekerdenrecords",
+        name: "Aantal verzekerdenrecords retour",
         width: 6,
-        end: 2,
+        end: 8,
         start: 3,
         type: "string"
     },
     {
-        name: "Aantal debiteurrecords",
+        name: "Aantal debiteurrecords retour",
         width: 6,
-        end: 2,
+        end: 14,
         start: 9,
         type: "string"
     },
     {
-        name: "Aantal prestatierecords",
+        name: "Aantal prestatierecords retour",
         width: 6,
-        end: 2,
+        end: 20,
         start: 15,
         type: "string"
     },
     {
-        name: "Aantal commentaarrecords",
+        name: "Aantal commentaarrecords retour",
         width: 6,
-        end: 2,
+        end: 26,
         start: 21,
         type: "string"
     },
     {
-        name: "Totaal aantal detailrecords",
+        name: "Totaal aantal detailrecords retour",
         width: 7,
-        end: 2,
+        end: 33,
         start: 27,
         type: "string"
     },
     {
-        name: "Totaal declaratiebedrag",
+        name: "Totaal ingediend declaratiebedrag",
         width: 11,
-        end: 2,
+        end: 44,
         start: 34,
         type: "string"
     },
     {
-        name: "Indicatie debet/credit",
+        name: "Indicatie debet/credit (01)",
         width: 1,
-        end: 2,
+        end: 45,
         start: 45,
         type: "string",
         padding_position: "end"
     },
     {
-        name: "Reserve",
-        width: 265,
-        end: 2,
+        name: "Totaal toegekend bedrag",
+        width: 11,
+        end: 56,
         start: 46,
+        type: "string",
+        padding_position: "end"
+    },
+    {
+        name: "Indicatie debet/credit (02)",
+        width: 1,
+        end: 57,
+        start: 57,
+        type: "string",
+        padding_position: "end"
+    },
+    {
+        name: "Reserve",
+        width: 313,
+        end: 370,
+        start: 58,
         type: "string",
         padding_position: "end"
     }
