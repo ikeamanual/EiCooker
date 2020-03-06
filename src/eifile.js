@@ -47,7 +47,7 @@ exports.loadFile = async (filePath, dataDef) => {
     debug(`fixyData[0].Kenmerk record = ${kenmerkRecord}`);
 
     fixyData = exports.parseRecord(lines[i], dataDef, kenmerkRecord); //
-    data.push(fixyData[0]);
+    data.push([fixyData[0]]);
   }
   debug(`data.length = ${data.length}`);
   return data;
@@ -58,9 +58,9 @@ exports.writeFile = async (data, dataDef, filePath) => {
   const fixy = require("fixy");
   var outputString = "";
   for (var i = 0; i < data.length; i++) {
-    const kenmerkRecord = data[i]["Kenmerk record"];
+    const kenmerkRecord = data[i][0]["Kenmerk record"];
     debug(`fixyData[0].Kenmerk record = ${kenmerkRecord}`);
-    var line = fixy.unparse(dataDef[kenmerkRecord], data);
+    var line = fixy.unparse(dataDef[kenmerkRecord], data[i]);
     line += "\r\n";
     outputString += line;
   }

@@ -2,6 +2,16 @@
 const path = require("path");
 let debug = require("debug")(path.basename(__filename, ".js"));
 
+
+var chai = require('chai');
+var chaiFiles = require('chai-files');
+
+chai.use(chaiFiles);
+
+var expect = chai.expect;
+var file = chaiFiles.file;
+var dir = chaiFiles.dir;
+
 debug("eifile.test");
 let assert = require("assert");
 let eifile = require("./eifile");
@@ -9,7 +19,7 @@ let eifile = require("./eifile");
 const fileName = "./testdata/test1.dat";
 
 describe("load file", async function () {
-  it("file should load", async function () {
+  it("file should load 4 lines", async function () {
     const dataDef = require("./standards/PM304-3.2.js");
     const lines = await eifile.load(fileName, dataDef);
 
@@ -38,22 +48,31 @@ describe("load file", async function () {
     assert.equal(fixyData[0].Praktijkcode, "01234567");
   });
 
-  it("load and write a complete file into mem, json format", async function () {
+  it("load and write a complete file", async function () {
     const dataDef = require("./standards/PM304-3.2.js");
     const data = await eifile.loadFile(fileName, dataDef);
     // assert.equal(data.length, 49);
     debug(`data[0] = ${data[0]["Naam verzekerde (01)"]}`);
 
-    eifile.writeFile(data, dataDef, "/tmp/piet.dat");
+    await eifile.writeFile(data, dataDef, "/tmp/piet.dat");
 
-    eifile.writeDataAsJson(data, "/tmp/piet.json");
+    expect(file(fileName)).to.equal(file("/tmp/piet.dat"));
+  });
+
+  it("load and write a json file", async function () {
+    const dataDef = require("./standards/PM304-3.2.js");
+    const data = await eifile.loadFile(fileName, dataDef);
+    // assert.equal(data.length, 49);
+    debug(`data[0] = ${data[0]["Naam verzekerde (01)"]}`);
+
+    await eifile.writeDataAsJson(data, "/tmp/piet.json");
   });
 });
 
 describe("write file", async function () {
   it("write data from json", async function () {
     const data = [
-      {
+      [{
         "Kenmerk record": "01",
         "Code externe-integratiebericht": "107",
         "Versienummer berichtstandaard": "03",
@@ -63,21 +82,21 @@ describe("write file", async function () {
         "Versieaanduiding informatiesysteem softwareleverancier": "1.0.0",
         "Uzovi-nummer": "9664",
         "Code servicebureau": "00000000",
-        Zorgverlenerscode: "01234567",
-        Praktijkcode: "01234567",
-        Instellingscode: "00000000",
+        "Zorgverlenerscode": "01234567",
+        "Praktijkcode": "01234567",
+        "Instellingscode": "00000000",
         "Identificatiecode betaling aan": "03",
         "Begindatum declaratieperiode": "20180620",
         "Einddatum declaratieperiode": "20180930",
         "Factuurnummer declarant": "100",
         "Dagtekening factuur": "20181002",
         "Btw-identificatienummer": null,
-        Valutacode: "EUR",
-        Reserve: null
-      }
+        "Valutacode": "EUR",
+        "Reserve": null
+      }]
       ,
 
-      {
+      [{
         "Kenmerk record": "02",
         "Identificatie detailrecord": "000000000001",
         "Burgerservicenummer (bsn) verzekerde": "957136171",
@@ -100,24 +119,24 @@ describe("write file", async function () {
         "Huisnummer (huisadres) verzekerde": "00099",
         "Huisnummertoevoeging (huisadres) verzekerde": null,
         "Code land verzekerde": "NL",
-        Debiteurnummer: "128",
-        Reserve: null
-      }
+        "Debiteurnummer": "128",
+        "Reserve": null
+      }]
       ,
 
-      {
+      [{
         "Kenmerk record": "04",
         "Identificatie detailrecord": "000000000002",
         "Burgerservicenummer (bsn) verzekerde": "957136171",
         "Uzovi-nummer": "1234",
         "Verzekerdennummer (inschrijvingsnummer, relatienummer)":
           "0123456789",
-        Machtigingsnummer: null,
+        "Machtigingsnummer": null,
         "Doorsturen toegestaan": "1",
         "Datum prestatie": "20180912",
         "Aanduiding prestatiecodelijst": "012",
-        Prestatiecode: "4000",
-        "KenmAantal uitgevoerde prestatieserk": "0001",
+        "Prestatiecode": "4000",
+        "Aantal uitgevoerde prestaties": "0001",
         "Indicatie ongeval (ongevalsgevolg)": "O",
         "Aanduiding diagnosecodelijst (01)": "000",
         "Verwijsdiagnosecode paramedische hulp (01)": "00000000",
@@ -130,7 +149,7 @@ describe("write file", async function () {
         "Code soort indicatie paramedische hulp": "000",
         "Zorgverlenerscode behandelaar/uitvoerder": "05193098",
         "Specialisme behandelaar/uitvoerder": "0000",
-        Verwijsdatum: "00000000",
+        "Verwijsdatum": "00000000",
         "Zorgverlenerscode voorschrijver/verwijzer": "00000000",
         "Specialisme voorschrijver/verwijzer": "0000",
         "Reden einde zorg": "01",
@@ -142,11 +161,11 @@ describe("write file", async function () {
         "Indicatie debet/credit (02)": "D",
         "Referentienummer dit prestatierecord": "752",
         "Referentienummer voorgaande gerelateerde prestatierecord": null,
-        Reserve: null
-      }
+        "Reserve": null
+      }]
       ,
 
-      {
+      [{
         "Kenmerk record": "99",
         "Aantal verzekerdenrecords": "000001",
         "Aantal debiteurrecords": "000000",
@@ -155,13 +174,21 @@ describe("write file", async function () {
         "Totaal aantal detailrecords": "0000002",
         "Totaal declaratiebedrag": "00000004000",
         "Indicatie debet/credit": "D",
-        Reserve: null
+        "Reserve": null
       }
 
-    ];
-    const dataDef = require("./standards/PM304-3.2.js");
-    debug(`data[0] = ${data[0]["Naam verzekerde (01)"]}`);
+      ]];
 
-    eifile.writeFile(data, dataDef, "/tmp/piet2.dat");
+    const util = require("util");
+    const fs = require("fs");
+    const writeFile = util.promisify(fs.writeFile);
+    await writeFile("/tmp/piet2.json", JSON.stringify(data, null, 2));
+
+    const dataDef = require("./standards/PM304-3.2.js");
+    debug(`data[0] = ${data[0][0]["Naam verzekerde (01)"]}`);
+
+    await eifile.writeFile(data, dataDef, "/tmp/piet2.dat");
+
+    expect(file(fileName)).to.equal(file("/tmp/piet2.dat"));
   });
 });
