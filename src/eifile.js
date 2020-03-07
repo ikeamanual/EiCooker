@@ -10,16 +10,12 @@ const specs = {
 };
 
 exports.initialize = async spec => {
-  const specPath = "standards";
-  var path = require("path");
-  const filePath = path.join(`${__dirname}`, `${specPath}`, `${spec}.js`);
-
-  const util = require("util");
-  const fs = require("fs");
-  const readFile = util.promisify(fs.readFile);
-  const data = await readFile(filePath, "utf-8");
-  // var jsonContent = JSON.parse(data);
-  return specs[spec];
+  if (specs[spec]) {
+    return specs[spec];
+  } else {
+    // throw new Error(`Could nog find specification "${spec}"`);
+    throw new Error(`${spec}`);
+  }
 };
 exports.load = async (filePath, dataDef) => {
   debug(`load ${filePath}`);

@@ -4,8 +4,9 @@ let debug = require("debug")(path.basename(__filename, ".js"));
 
 var chai = require("chai");
 var chaiFiles = require("chai-files");
-
 chai.use(chaiFiles);
+const chaiAsPromised = require("chai-as-promised");
+chai.use(chaiAsPromised);
 
 var expect = chai.expect;
 var file = chaiFiles.file;
@@ -207,5 +208,10 @@ describe("load local specs", async function() {
     const dataDef2 = await eifile.initialize("PM304-3.2");
 
     expect(dataDef).to.deep.equal(dataDef2);
+  });
+  it("unknown specs should throw exception", async function() {
+    // should throw error with text
+    const spec = "xxxxxx";
+    await expect(eifile.initialize(spec)).to.be.rejectedWith(`${spec}`);
   });
 });
