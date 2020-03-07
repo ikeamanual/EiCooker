@@ -2,7 +2,7 @@
   "name": "eicooker",
   "version": "1.0.0",
   "description": "Toolkit to read, write and test EI records. ( External Integration records )",
-  "main": "index.js",
+  "main": "src/eifile.js",
   "dependencies": {
     "fixy": "^1.2.1"
   },

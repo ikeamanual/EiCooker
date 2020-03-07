@@ -4,13 +4,29 @@ let debug = require("debug")(path.basename(__filename, ".js"));
 
 debug("eifile");
 
+const specs = {
+  "PM304-3.2": require("./standards/PM304-3.2.js"),
+  "PM305-3.2": require("./standards/PM305-3.2.js")
+};
+
+exports.initialize = async spec => {
+  const specPath = "standards";
+  var path = require("path");
+  const filePath = path.join(`${__dirname}`, `${specPath}`, `${spec}.js`);
+
+  const util = require("util");
+  const fs = require("fs");
+  const readFile = util.promisify(fs.readFile);
+  const data = await readFile(filePath, "utf-8");
+  // var jsonContent = JSON.parse(data);
+  return specs[spec];
+};
 exports.load = async (filePath, dataDef) => {
   debug(`load ${filePath}`);
 
   const util = require("util");
   const fs = require("fs");
   const readFile = util.promisify(fs.readFile);
-
   const data = await readFile(filePath, "utf-8");
 
   debug(`${data.length}`);
