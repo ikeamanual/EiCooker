@@ -210,7 +210,7 @@ describe("load local specs", async function() {
     expect(dataDef).to.deep.equal(dataDef2);
   });
   it("unknown specs should throw exception", async function() {
-    // should throw error with text
+    // should throw error with spec name
     const spec = "xxxxxx";
     await expect(eifile.initialize(spec)).to.be.rejectedWith(`${spec}`);
   });

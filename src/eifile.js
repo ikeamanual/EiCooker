@@ -2,6 +2,12 @@
 const path = require("path");
 let debug = require("debug")(path.basename(__filename, ".js"));
 
+/*
+ * EI = externe integratie bestanden
+ * https://www.vektis.nl/standaardisatie
+ *
+ */
+
 debug("eifile");
 
 const specs = {
