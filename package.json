@@ -4,7 +4,7 @@
   "description": "Toolkit to read, write and test EI records. ( External Integration records )",
   "main": "src/eifile.js",
   "dependencies": {
-    "fixy": "^1.2.1"
+    "fixy": "^1.3.3"
   },
   "devDependencies": {
     "chai": "^4.2.0",
